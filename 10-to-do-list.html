@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        body{
+           background-color: navy;
+           color: greenyellow;
+           font-family: gabriola;
+           font-size: larger;
+           margin-bottom:100px;
+        }
+        input{
+            padding: 7px;
+            width: 200px;
+            border-radius: 100px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        .container-div{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: space-evenly;
+            align-items: center;
+            align-content: center;
+            column-gap: 10px;
+
+           
+        }
+        .output{
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            justify-content: space-evenly;
+            align-items: center;
+            align-content: center;
+           
+        }  
+        .todo-div{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: space-evenly;
+            align-items: center;
+            align-content: center;
+        
+           
+
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-content: center;
+            align-items: center;
+            
+        }
+    .addtodo{
+       background-color: greenyellow;
+       width: 100px;
+       padding: 4px;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+       color: navy;
+       text-transform: lowercase;
+       font-family: gabriola;
+       font-size: 12px;
+       transition: 0.9s;
+    }
+    .del-btn{
+        background-color: red;
+       width: 100px;
+       padding: 4px;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+       color: white;
+       text-transform: lowercase;
+       font-family: gabriola;
+       font-size: 12px;
+       transition: 0.9s;
+    }
+    .del-btn:hover{
+        background-color: purple;
+        color: greenyellow;
+        outline: none;
+        transform: translateY(-1px); 
+    }
+    .addtodo:hover{
+        background-color: white;
+        color: blue;
+        outline: none;
+        transform: translateY(-1px); 
+    }
+    /* git is a tecnology we usev to track  our code, it gives us comands that e canuse to push our codes online */
+    /* it helpsus pload or backup our codes online */
+
+       
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-div">
+            <input
+             type="text"
+             placeholder="add todo...."
+             id="todoInput"
+              >
+              <input 
+              type="date"
+              placeholder=""
+              id="dateInput"
+              >
+              <button id="addTodoBtn" class="addtodo">Add to do </button>
+        </div>
+        <div class="output" id="output"></div>
+    
+
+
+    
+          <div class="output" id="output"></div>
+           <script>
+            const todoInput= document.getElementById('todoInput');
+            const dateInput= document.getElementById('dateInput');
+            const addTodoBtn = document.getElementById('addTodoBtn');
+            const output = document.getElementById('output');
+
+            const todoList= [
+                {
+                todo: 'wash dishes',
+                dueDate: '23-14-2024'
+                },
+                {
+                todo: 'watch Youtube',
+                dueDate: '24-05-2024'
+                }
+            ]
+            addTodoBtn.addEventListener('click', () => {
+                todoList.push({
+                todo:todoInput.value,
+                dueDate: dateInput.value
+             })
+                console.log(todoList);  
+                todoInput.value= "";
+                dateInput.value= "";
+                displayTodo();
+        })
+        function displayTodo () {
+            let todoListHTML = '';
+            todoList.forEach((item,index) => {
+            todoListHTML += `
+            <div class="todo-div">
+            <p>
+                ${item.todo}   
+            </p>
+            <p> 
+                ${item.dueDate}
+            </p>
+            <button class="del-btn" onclick="
+                todoList.splice(${index}, 1);
+                displayTodo();
+                ">Delete</button>
+            </div>
+            ` 
+            }) 
+            output.innerHTML = todoListHTML;
+        }
+        displayTodo();
+
+          </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays and Loops</title>
+</head>
+<body>
+    
+
+    <script>
+  //The for.....loop
+  //initial variable
+  //the loop condition
+  //the decrement or d increment steps;
+
+  for(let i = 0; i < 100; i++) {
+    console.log("hello this is javascript");
+  }
+
+  //The while .....loop
+  //initial Variable
+  //The loop condition
+  //The decrement or the increment step;
+
+  let i = 1; 
+  while (i <= 10) {
+    console.log(i);
+    i++;
+  }
+  //The do.....while loop
+  //initial variable
+  //The loop condition
+  //The decrement or the increment step;
+  
+  let j= 10;
+  do {
+    console.log(j);
+    j--;
+  } while (j >0);
+  
+  
+                 //=============================================================//
+                 //==========           ARRAYS         =========================//
+    //Arrays are container for list elements in programming.
+
+   const groceries = [
+        "Maggi",
+        "rice", 
+        22,
+        [1,2,3,4], 
+        {name: "John"}, 
+        false, 
+        true
+    ];
+
+    console.log(groceries);
+    console.log(typeof groceries)
+   console.log(Array.isArray(groceries));
+   console.log(groceries[0]);
+   console.log(groceries[4]);
+   console.log(groceries.length);
+                   //Array methods
+  const product =['stocks','basketball','hp-laptop','industrial Air-condition']
+ 
+  const extraProduct = ['ear-pad', 'white ladies snickers','iphone 10'];
+  
+  const allProduct = product.concat(extraProduct);
+  console.log(product);
+  console.log(extraProduct);
+  console.log(allProduct);
+
+   //how to add element in the end of array
+   product.push("table")
+   console.log(product)
+   //how to add element in front of array
+   product.unshift('chair')
+   console.log(product);
+   //how to remove an item at the end of an array
+   product.pop()
+   console.log(product);
+   //how to remove an item at the frront of an array
+   product.shift()
+   console.log(product)
+   //the splice method is used to removed mutiple items from an array
+   product.splice(1,1);
+   console.log(product)
+   //looping through an array
+   for(let i = 0; i < product.length; i++) {
+    product[i]
+    console.log(product[i]);
+   }
+   
+   //use of forEach() to loop through an array
+   product.forEach((item, index) => {
+   console.log(index,item)
+   })
+   
+   //working with arrays
+  const clientNames = [
+    'John',
+    'Fathia',
+    'Jordan',
+    'Eden',
+    'Francis'
+  ];
+
+  //The for loop method
+  for(let i = 0; i< clientNames.length; i++){
+    if(clientNames [i] === 'Jane'){
+      console.log("Yes!!! there is a name Jordan inside the list")
+    } else {
+      console.log("No such name dont exist")
+    }
+  }
+ </script>
+</body>
+</html>
